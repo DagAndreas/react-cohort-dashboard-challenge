@@ -1,0 +1,9 @@
+.home-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-button p {
+  margin-top: 4px; /* adjust for spacing*/
+}
