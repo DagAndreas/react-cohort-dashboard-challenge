@@ -1,0 +1,52 @@
+/* Wrapper for the entire new post component */
+.new-post-wrapper {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 800px;
+    max-width: 1200px;     
+    margin: auto;          
+    box-sizing: border-box;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+
+  .new-post-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  
+
+  .new-post-icon {
+    flex-shrink: 0;
+  }
+  
+
+  .new-post-icon img {
+    width: 50px;
+    height: 50px;
+  }
+  
+
+  .new-post-input {
+    background-color: #93b7db;
+    border: none;
+    padding: 10px;
+    margin: 0 10px;
+    border-radius: 5px;
+    flex-grow: 1;
+    box-sizing: border-box;
+  }
+  
+
+  .new-post-button {
+    background-color: #64648c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    flex-shrink: 0;
+  }
+  

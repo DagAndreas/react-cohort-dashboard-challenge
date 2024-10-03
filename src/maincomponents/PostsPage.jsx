@@ -1,3 +1,4 @@
+import ListOfPosts from "../PostComponents/ListOfPost";
 import NewPost from "../PostComponents/NewPost";
 import "./PostsPage.css";
 
@@ -10,7 +11,7 @@ function PostsPage() {
             <NewPost/>
           </li>
           <li>
-            <p>list of posts</p>
+            <ListOfPosts/>
           </li>
         </ul>
       </div>
