@@ -33,7 +33,7 @@ function PostComment(props) {
             <div className="item2">
               <section>
                 {/* text */}
-                post content here:{comment.content}
+                {comment.content}
             <p></p>
               </section>
             </div>
