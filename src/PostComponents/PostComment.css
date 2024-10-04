@@ -1,0 +1,9 @@
+.container {
+    display: flex;
+    border: 1px solid black;        /* Small, solid black border */
+    background-color: #f0f0f0;      /* Light gray background */
+    padding: 10px;                   /* Space inside the container */
+    margin: 10px 0;                  /* Space between comments */
+    border-radius: 5px;              /* Rounded corners (optional) */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow (optional) */
+}

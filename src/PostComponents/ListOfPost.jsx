@@ -10,6 +10,7 @@ const first = posts[0]
     <>
       <p>Here will be a list of posts</p>
       <PostItem post={first}/>
+
     </>
   );
 }
