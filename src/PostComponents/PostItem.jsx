@@ -4,7 +4,8 @@ import { ContactContext } from "../App";
 import Icon from "../headercomponents/Icon";
 import PostComment from "./PostComment";
 
-import './PostItem.css'
+import "./PostItem.css";
+import CreateCommentButton from "./CreateCommentButton";
 
 function PostItem(props) {
   const { post } = props;
@@ -12,14 +13,11 @@ function PostItem(props) {
   const { contacts } = useContext(ContactContext);
 
   const [comments, setComments] = useState([]);
-
   const [seeAllComments, setSeeAllComments] = useState(false);
 
   // user of post
   const posterid = post.contactId; // eg. 2
-  const posterContact = contacts.filter(
-    (contact) => contact.id === posterid
-  )[0]; // filter on contact.id
+  const posterContact = contacts.find((contact) => contact.id === posterid); // find the contact based on id
 
   // fetch comments for correct post id
   useEffect(() => {
@@ -38,42 +36,53 @@ function PostItem(props) {
 
   return (
     <>
-      <main className="postwrapper">
-    {/* <p>Hei</p> */}
-        <section className="postsection">
-          <section className="userinfo">
-            <Icon person={posterContact} />
-            <section className="nameAndTitle">
-              {/* set as bold maybe */}
-              <div className="name">
-                {posterContact.firstName} {posterContact.lastName}
-              </div>
-              <div className="title">{posterContact.jobTitle}</div>
+      <li>
+        <main className="postwrapper">
+          <section className="postsection">
+            <section className="userinfo">
+              {/* Only render Icon if posterContact exists */}
+              {posterContact && <Icon person={posterContact} />}
+              <section className="nameAndTitle">
+                <div className="name">
+                  {/* Check if posterContact is defined before accessing properties */}
+                  {posterContact ? (
+                    <>
+                      {posterContact.firstName} {posterContact.lastName}
+                    </>
+                  ) : (
+                    "Unknown User"
+                  )}
+                </div>
+                {/* Also check for jobTitle */}
+                <div className="title">
+                  {posterContact?.jobTitle || "No Title Available"}
+                </div>
+              </section>
+            </section>
+            <section className="posttext">
+              <p>{post.content}</p>
             </section>
           </section>
-          <section className="posttext">
-            <p>{post.content}</p>
-          </section>
-        </section>
 
-      <div className="divider"/>
+          <div className="divider" />
 
-        <div>
-          {/* see all comments button */}
-          <button className='previousCommentsButton'>See previous comments</button>
-          {/* TODO: render all comments */}
-          {/* Test with one comment first */}
-          {comments.length > 0 ? (
-            comments.map((comment) => (
-              <PostComment key={comment.id} comment={comment} />
-            ))
-          ) : (
-            <p>No comments available</p>
-          )}
+          <div>
+            <button className="previousCommentsButton">
+              See previous comments
+            </button>
 
-          {/* add a comment */}
-        </div>
-      </main>
+            {comments.length > 0 ? (
+              comments.map((comment) => (
+                <PostComment key={comment.id} comment={comment} />
+              ))
+            ) : (
+              <p>No comments available</p>
+            )}
+          </div>
+
+          <CreateCommentButton/>
+        </main>
+      </li>
     </>
   );
 }

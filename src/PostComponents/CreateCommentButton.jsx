@@ -1,28 +1,29 @@
 import { useContext } from "react";
-import Icon from "../headercomponents/Icon";
 import { ContactContext } from "../App";
-import "./NewPost.css"; // Import the CSS file
+import Icon from "../headercomponents/Icon";
 
-function NewPost() {
+function CreateCommentButton() {
   const { contacts } = useContext(ContactContext);
-  const firstcontact = contacts[0];
 
-  
+  // find user (first)
+  const currentUser = contacts[0];
 
   return (
-    <div className="new-post-wrapper">
+    <>
+      <div className="new-post-wrapper">
       <div className="new-post-container">
-        <Icon person={firstcontact} />
+        <Icon person={currentUser} />
         <input
           type="text"
-          placeholder="What's on your mind?"
+          placeholder="Comment"
           maxLength={100} /* Adjust max length as needed */
           className="new-post-input"
         />
-        <button className="new-post-button">Post</button>
+        <button className="new-post-button">Send</button>
       </div>
     </div>
+    </>
   );
 }
 
-export default NewPost;
+export default CreateCommentButton;
