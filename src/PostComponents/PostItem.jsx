@@ -80,7 +80,7 @@ function PostItem(props) {
             )}
           </div>
 
-          <CreateCommentButton/>
+          <CreateCommentButton post={post} />
         </main>
       </li>
     </>
