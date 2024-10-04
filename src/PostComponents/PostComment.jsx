@@ -25,7 +25,7 @@ function PostComment(props) {
         <div className="item">
           <div className="overunder">
             <div className="item2">
-              <text>
+              <text className="fullname">
                 {/* name */}
                 {commenterContact.firstName} {commenterContact.lastName}
               </text>
@@ -34,6 +34,7 @@ function PostComment(props) {
               <text>
                 {/* text */}
                 post content here:{comment.content}
+            <p></p>
               </text>
             </div>
           </div>

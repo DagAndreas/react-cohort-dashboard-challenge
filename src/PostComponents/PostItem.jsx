@@ -4,6 +4,9 @@ import { ContactContext } from "../App";
 import Icon from "../headercomponents/Icon";
 import PostComment from "./PostComment";
 
+// import './PostItem.css'
+
+
 function PostItem(props) {
   const { post } = props;
 

@@ -1,5 +1,6 @@
 /* Wrapper for the entire new post component */
 .new-post-wrapper {
+    display: flex;
     background-color: white;
     border-radius: 10px;
     padding: 20px;

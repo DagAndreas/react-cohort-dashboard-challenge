@@ -17,7 +17,7 @@ function App() {
 
   useEffect(() => {
     setContacts(contactsFileList);
-    setPosts(PostsFileList);
+    setPosts(PostsFileList.reverse());
   }, []);
 
   return (
