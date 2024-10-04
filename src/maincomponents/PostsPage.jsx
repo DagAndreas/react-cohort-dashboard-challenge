@@ -10,6 +10,7 @@ function PostsPage() {
           <li>
             <NewPost/>
           </li>
+          {/* <div className="divider"></div> */}
           <li>
             <ListOfPosts/>
           </li>

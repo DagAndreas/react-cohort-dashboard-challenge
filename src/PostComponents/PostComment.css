@@ -1,23 +1,25 @@
 .container {
-    display: flex;
-    /* border: 1px solid black;        Small, solid black border */
-    width:fit-content;
-    background-color: #f0f0f0;      /* Light gray background */
-    padding: 10px;                   /* Space inside the container */
-    margin: 10px 0;                  /* Space between comments */
-    border-radius: 5px;              /* Rounded corners (optional) */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow (optional) */
+  display: flex;
+  width: fit-content;
+  /* background-color: #e6ebf5; */
+  /* padding: 2%; */
+  padding-right: 2%;
+  margin: 10px 0;
+  border-radius: 5px;
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  */
 }
 
-.item{
-    padding:10px;
+.item {
+  /* padding: 2%; */
+  padding-left: 7px;
 }
 
-.overunder{
-    background-color: rgb(226, 245, 239);
-    
+.overunder {
+  background-color: #e6ebf5;
+  border-radius: 15px;
+  padding: 3px;
 }
 
-.fullname{
-    font-weight: bold;
+.fullname {
+  font-weight: bold;
 }

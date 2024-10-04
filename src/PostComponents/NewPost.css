@@ -4,7 +4,7 @@
     background-color: white;
     border-radius: 10px;
     padding: 20px;
-    width: 800px;
+    width: 100%;
     max-width: 1200px;     
     margin: auto;          
     box-sizing: border-box;
@@ -31,7 +31,7 @@
   
 
   .new-post-input {
-    background-color: #93b7db;
+    background-color: #e6ebf5;
     border: none;
     padding: 10px;
     margin: 0 10px;
@@ -42,7 +42,7 @@
   
 
   .new-post-button {
-    background-color: #64648c;
+    background-color: #000046;
     color: white;
     border: none;
     padding: 10px 20px;

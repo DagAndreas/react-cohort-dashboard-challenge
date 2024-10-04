@@ -4,8 +4,7 @@ import { ContactContext } from "../App";
 import Icon from "../headercomponents/Icon";
 import PostComment from "./PostComment";
 
-// import './PostItem.css'
-
+import './PostItem.css'
 
 function PostItem(props) {
   const { post } = props;
@@ -14,7 +13,7 @@ function PostItem(props) {
 
   const [comments, setComments] = useState([]);
 
-  const [seeAllComments, setSeeAllComments] = useState(false)
+  const [seeAllComments, setSeeAllComments] = useState(false);
 
   // user of post
   const posterid = post.contactId; // eg. 2
@@ -24,14 +23,14 @@ function PostItem(props) {
 
   // fetch comments for correct post id
   useEffect(() => {
-    const path = `https://boolean-uk-api-server.fly.dev/dagandreas/post/${post.id}/comment`
+    const path = `https://boolean-uk-api-server.fly.dev/dagandreas/post/${post.id}/comment`;
     fetch(path)
-    .then(res => res.json())
-    .then(data => setComments(data))
-    .catch(error => console.log("error in postitem", error))
+      .then((res) => res.json())
+      .then((data) => setComments(data))
+      .catch((error) => console.log("error in postitem", error));
 
-    console.log("fetched from path:", path)
-  }, [post.id])
+    console.log("fetched from path:", path);
+  }, [post.id]);
 
   useEffect(() => {
     console.log("Updated comments:", comments);
@@ -39,8 +38,8 @@ function PostItem(props) {
 
   return (
     <>
-      <p>Hei</p>
       <main className="postwrapper">
+    {/* <p>Hei</p> */}
         <section className="postsection">
           <section className="userinfo">
             <Icon person={posterContact} />
@@ -57,20 +56,22 @@ function PostItem(props) {
           </section>
         </section>
 
-        <div>
-            {/* see all comments button */}
-            <button>See all comments</button>
-            {/* TODO: render all comments */}
-            {/* Test with one comment first */}
-            {comments.length > 0 ? (
-                comments.map((comment) => (
-                  <PostComment key={comment.id} comment={comment} />
-                ))
-              ) : (
-                <p>No comments available</p>
-              )}
+      <div className="divider"/>
 
-            {/* add a comment */}
+        <div>
+          {/* see all comments button */}
+          <button className='previousCommentsButton'>See previous comments</button>
+          {/* TODO: render all comments */}
+          {/* Test with one comment first */}
+          {comments.length > 0 ? (
+            comments.map((comment) => (
+              <PostComment key={comment.id} comment={comment} />
+            ))
+          ) : (
+            <p>No comments available</p>
+          )}
+
+          {/* add a comment */}
         </div>
       </main>
     </>
