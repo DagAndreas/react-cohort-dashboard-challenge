@@ -1,10 +1,10 @@
 .header-banner {
-    background-color: #000046; /* Set background color */
-    display: flex; /* Use flexbox for alignment */
-    align-items: center; /* Center items vertically */
-    justify-content: space-between; /* Align logo to the left and icon to the right */
-    padding: 10px 20px; /* Optional padding for spacing */
-    height: 60px; /* Optional fixed height */
+    background-color: #000046;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    height: 60px;
   }
   
   .header-banner svg {

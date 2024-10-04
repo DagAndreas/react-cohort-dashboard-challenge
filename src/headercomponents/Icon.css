@@ -8,6 +8,6 @@
     color: #fff;
     font-weight: bold;
     font-size: 20px;
-    align-self: flex-start; /* Ensures no stretching if parent is flex */
+  align-self: flex-start;
   }
   

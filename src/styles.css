@@ -1,0 +1,27 @@
+body {
+  /* Let body fill max size */
+  width: 100vw;
+  height: 100vh;
+
+  /* remove padding and margins */
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container-nav-main {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+.header {
+    height: 60xp;
+    width: 100vw;
+}

@@ -39,6 +39,22 @@ function App() {
 
 export { App, PostContext, ContactContext };
 
+
+// const postPropType = PropTypes.shape({
+//   id: PropTypes.number.isRequired,
+//   contactId: PropTypes.number.isRequired,
+//   title: PropTypes.string.isRequired,
+//   content: PropTypes.string.isRequired,
+// });
+
+// const contactPropType = PropTypes.shape({
+//   id: PropTypes.number.isRequired,
+//   postId: PropTypes.number.isRequired,
+//   contactId: PropTypes.number.isRequired,
+//   content: PropTypes.string.isRequired,
+// });
+
+
 // // Function to fetch posts
 // async function getPosts() {
 //   const response = await fetch("https://boolean-uk-api-server.fly.dev/dagandreas/post");
