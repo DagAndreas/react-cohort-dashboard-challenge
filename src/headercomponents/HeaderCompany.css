@@ -2,16 +2,15 @@
     background-color: #000046;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     padding: 10px 20px;
-    height: 60px;
+    margin:0;
   }
   
   .header-banner svg {
-    max-height: 60px; /* Optional max height for the logo */
+    max-height: 60px;
   }
   
   .header-banner .icon-circle {
-    margin-left: auto; /* Push the icon to the far right */
+    margin-left: auto;
   }
   

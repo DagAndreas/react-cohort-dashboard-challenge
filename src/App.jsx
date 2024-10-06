@@ -20,15 +20,19 @@ function App() {
     setPosts(PostsFileList.reverse());
   }, []);
 
+
+  
+
   return (
     <>
       <PostContext.Provider value={{ posts, setPosts }}>
         <ContactContext.Provider value={{ contacts, setContacts }}>
           <header>
+            {/* TODO: Fix header and sidepanel static. */}
             <HeaderCompany />
             <Routes>
               <Route Route path="/" element={<Home />} />
-              <Route />
+              <Route Route path="/contact/:id" element={<Home/>} />
             </Routes>
           </header>
         </ContactContext.Provider>
@@ -37,22 +41,10 @@ function App() {
   );
 }
 
+
 export { App, PostContext, ContactContext };
 
 
-// const postPropType = PropTypes.shape({
-//   id: PropTypes.number.isRequired,
-//   contactId: PropTypes.number.isRequired,
-//   title: PropTypes.string.isRequired,
-//   content: PropTypes.string.isRequired,
-// });
-
-// const contactPropType = PropTypes.shape({
-//   id: PropTypes.number.isRequired,
-//   postId: PropTypes.number.isRequired,
-//   contactId: PropTypes.number.isRequired,
-//   content: PropTypes.string.isRequired,
-// });
 
 
 // // Function to fetch posts

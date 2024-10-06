@@ -2,7 +2,7 @@ import './Home.css'; // Import the CSS file
 import PostsPage from './PostsPage';
 import Sidebar from './Sidebar';
 
-function Home() {
+function Hom e() {
   return (
     <>
       <div className="home-container">
