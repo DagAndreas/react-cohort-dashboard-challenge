@@ -6,6 +6,7 @@ import contactsFileList from "./data/ContactsFileList";
 import PostsFileList from "./data/PostsFileList";
 import { Route, Routes } from "react-router-dom";
 import Home from "./maincomponents/Home";
+import ContactPage from "./ContactProfilePage/ContactPage";
 
 //define a context
 const PostContext = createContext();
@@ -32,7 +33,7 @@ function App() {
             <HeaderCompany />
             <Routes>
               <Route Route path="/" element={<Home />} />
-              <Route Route path="/contact/:id" element={<Home/>} />
+              <Route Route path="/contact/:id" element={<ContactPage/>} />
             </Routes>
           </header>
         </ContactContext.Provider>
