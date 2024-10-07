@@ -1,25 +1,51 @@
 .container {
   display: flex;
-  width: fit-content;
-  /* background-color: #e6ebf5; */
-  /* padding: 2%; */
+  width: 100%;
   padding-right: 2%;
   margin: 10px 0;
   border-radius: 5px;
-  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  */
 }
 
 .item {
-  /* padding: 2%; */
-  padding-left: 7px;
+  /* Adjust padding or margins if needed */
 }
 
 .overunder {
+  min-width: 200px;
   background-color: #e6ebf5;
-  border-radius: 15px;
-  padding: 3px;
+  border-radius: 8px;
+  padding: 15px;
+  position: relative; /* Set relative positioning for the container */
+}
+
+.edit-button {
+  position: absolute; /* Position the button absolutely within the container */
+  top: 10px;
+  right: 10px;
+  background-color: #d4dbd3;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.edit-button:hover {
+  background-color: #c1c8be;
+}
+
+.edit-button:active {
+  background-color: #a7aea5;
 }
 
 .fullname {
   font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.item2 {
+  margin-bottom: 5px;
+}
+
+.item2 section {
+  margin-top: 10px;
 }

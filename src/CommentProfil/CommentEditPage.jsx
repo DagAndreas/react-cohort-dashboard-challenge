@@ -120,37 +120,44 @@ function CommentEditPage(props) {
         <Sidebar />
         <div className="commentForms">
           <h2>
-            Edit Comment. Post ID: {postid}, Comment ID: {commentid}
           </h2>
-          {/* Field for comment ID (read-only) */}
-          <div>
-            <label>Comment ID:</label>
-            <input type="text" value={commentid} readOnly />
-          </div>
-          {/* Field for post ID (read-only) */}
-          <div>
-            <label>Post ID:</label>
-            <input type="text" value={postid} readOnly />
-          </div>
-          {/* Field for contact ID */}
-          <div>
-            <label>Contact ID:</label>
-            <input
-              type="text"
-              value={contactId}
-              onChange={(event) => updateText(event, setContactId)}
-            />
-          </div>
-          {/* Field for content */}
-          <div>
-            <label>Content:</label>
-            <textarea
-              value={content}
-              onChange={(event) => updateText(event, setContent)}
-            />
-          </div>
-          <button onClick={onSave}>Save</button>
-          <button onClick={onDelete}>Delete</button>
+          <form className="comment-form">
+            {/* Field for comment ID (read-only) */}
+            <div className="input-group">
+              <label>Comment ID:</label>
+              <input type="text" value={commentid} readOnly />
+            </div>
+            {/* Field for post ID (read-only) */}
+            <div className="input-group">
+              <label>Post ID:</label>
+              <input type="text" value={postid} readOnly />
+            </div>
+            {/* Field for contact ID */}
+            <div className="input-group">
+              <label>Contact ID:</label>
+              <input
+                type="text"
+                value={contactId}
+                onChange={(event) => updateText(event, setContactId)}
+              />
+            </div>
+            {/* Field for content */}
+            <div className="input-group">
+              <label>Content:</label>
+              <textarea
+                value={content}
+                onChange={(event) => updateText(event, setContent)}
+              />
+            </div>
+            <div className="button-group">
+              <button type="button" className="save-button" onClick={onSave}>
+                Save
+              </button>
+              <button type="button" className="delete-button" onClick={onDelete}>
+                Delete
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </>
