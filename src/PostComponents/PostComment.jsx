@@ -5,16 +5,23 @@ import Icon from "../headercomponents/Icon";
 
 //import css
 import './PostComment.css'
+import { useNavigate } from "react-router-dom";
 
 function PostComment(props) {
-  const { comment } = props;
+  const { comment, postid } = props;
 
+  const navigate = useNavigate()
   const { contacts } = useContext(ContactContext);
 
   const commenterId = comment.contactId; // eg. 2
   const commenterContact = contacts.filter(
     (contact) => contact.id === commenterId
   )[0]; // filter on contact.id
+
+  const editPress = () => {
+    console.log("going to edit for post", postid, " commentid", comment.id )
+    navigate(`/post/${postid}/comment/${comment.id}`)
+  }
 
   return (
     <>
@@ -29,6 +36,7 @@ function PostComment(props) {
                 {/* name */}
                 {commenterContact.firstName} {commenterContact.lastName}
               </p>
+              <button onClick={editPress}>edit</button>
             </div>
             <div className="item2">
               <section>
@@ -46,3 +54,4 @@ function PostComment(props) {
 }
 
 export default PostComment;
+

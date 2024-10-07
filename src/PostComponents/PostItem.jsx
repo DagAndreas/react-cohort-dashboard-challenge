@@ -73,7 +73,7 @@ function PostItem(props) {
 
             {comments.length > 0 ? (
               comments.map((comment) => (
-                <PostComment key={comment.id} comment={comment} />
+                <PostComment key={comment.id} comment={comment} postid = {post.id}/>
               ))
             ) : (
               <p>No comments available</p>

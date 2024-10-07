@@ -1,0 +1,54 @@
+/* ContactPage.css */
+
+.commentedit-container {
+    display: flex;
+    width: 100%;
+}
+
+.forms-container {
+    flex: 1;
+    padding: 20px;
+}
+
+.top-section,
+.bottom-section {
+    display: flex;
+    justify-content: space-between;
+}
+
+.account-info,
+.address-info,
+.contact-info,
+.company-info {
+    width: 48%; /* Adjust as needed */
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.bottom-section {
+    margin-top: 30px;
+}
+
+.save-button-container {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.save-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
