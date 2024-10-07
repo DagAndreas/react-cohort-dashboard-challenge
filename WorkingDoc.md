@@ -44,38 +44,44 @@ comment:
 * post
 
 ## Core Requirement:
-- [ ] implement the listed components
-- [ ] let the users create new posts
-	- [ ] take input
-	- [ ] post to api
-	- [ ] fetch api
+- [x] implement the listed components
+- [x] let the users create new posts
+	- [x] take input
+	- [x] post to api
+	- [x] fetch api
 - [ ] let users comment on existing posts
-	- [ ] take input
-	- [ ] post to api
+	- [x] take input
+	- [x] post to api
 	- [ ] refresh list
-- [ ] postst and comments should show initials in a colored circle
+- [ ] Ensure that the fetched list is correctly displayed in order.
+- [x] postst and comments should show initials in a colored circle
 - [ ] clicking a posts tile should take the user to a separate route that shows only that post and all its comments
-- [ ] styleguide:
-	- [ ] Header background, button & font colour: #000046
-	* [ ] Form input background colour: #e6ebf5
-	* [ ] Button hover colour: #64dc78
-	* [ ] Post title colour: #64648c
-	* [ ] Body background colour: #F0F5FA
-	* [ ] [Header logo SVG](https://github.com/DagAndreas/react-cohort-dashboard-challenge/blob/main/_assets/title-header-svg.md)
-	* [ ] [Home icon SVG](https://github.com/DagAndreas/react-cohort-dashboard-challenge/blob/main/_assets/home-icon-svg.md)
-	* [ ] [Profile icon SVG](https://github.com/DagAndreas/react-cohort-dashboard-challenge/blob/main/_assets/profile-icon-svg.md)
+- [x] styleguide:
+	- [x] Header background, button & font colour: #000046
+	* [x] Form input background colour: #e6ebf5, clicked homebutton, textfields
+	* [x] Button hover colour: #64dc78
+	* [x] Post title colour: #64648c
+	* [x] Textfield color: #93b7db i've added
+	* [x] Body background colour: #F0F5FA
+	* [x] [Header logo SVG](https://github.com/DagAndreas/react-cohort-dashboard-challenge/blob/main/_assets/title-header-svg.md)
+	* [x] [Home icon SVG](https://github.com/DagAndreas/react-cohort-dashboard-challenge/blob/main/_assets/home-icon-svg.md)
+	* [x] [Profile icon SVG](https://github.com/DagAndreas/react-cohort-dashboard-challenge/blob/main/_assets/profile-icon-svg.md)
+
 
 ## Extension Requirements
-* [ ] use contextapi
+* [x] use contextapi
 * [ ] only 3 comments should be visible functionality
 	* [ ] see previous comments button to list all
 * [ ] Clicking on a post/name -> [Profile screen](https://github.com/DagAndreas/react-cohort-dashboard-challenge/blob/main/_assets/profile.png)
-	* [ ] id1 =(emulated)= current user
-	* [ ] use pathparam to fetch user data
-	* [ ] allow user to change user data
-	* [ ] save button to save new data
-		* [ ] save to api
+	* [x] id1 =(emulated)= current user
+	* [x] use pathparam to fetch user data
+	* [x] allow user to change user data
+	* [x] save button to save new data
+		* [x] save to api
 * [ ] posts should be able to be updated
 * [ ] post should be able to be deleted
-* [ ] comments should be able to be updated
-* [ ] comments should be able to be deleted
+* [x] comments should be able to be updated
+* [x] comments should be able to be deleted
+
+
+![[Pasted image 20241003151544.png]]
