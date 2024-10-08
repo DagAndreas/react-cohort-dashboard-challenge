@@ -3,7 +3,7 @@ import { ContactContext } from "../App";
 import Icon from "../headercomponents/Icon";
 
 // Import CSS
-import './PostComment.css';
+import "./PostComment.css";
 import { useNavigate } from "react-router-dom";
 
 function PostComment(props) {
@@ -25,12 +25,19 @@ function PostComment(props) {
   return (
     <>
       <div className="container">
-        <div className="item">
-          <Icon person={commenterContact} />
-        </div>
+        <div className="item"></div>
         <div className="item">
           <div className="overunder">
-            <button className="edit-button" onClick={editPress}>Edit</button>
+            <button className="edit-button" onClick={editPress}>
+              Edit
+            </button>
+            <div className="iconandpost">
+              <div className="icon">
+
+            <Icon person={commenterContact} />
+              </div>
+            <div className="nameandpost">
+
             <div className="item2">
               <p className="fullname">
                 {commenterContact.firstName} {commenterContact.lastName}
@@ -40,6 +47,9 @@ function PostComment(props) {
               <section>
                 <p>{comment.content}</p>
               </section>
+            </div>
+
+            </div>
             </div>
           </div>
         </div>

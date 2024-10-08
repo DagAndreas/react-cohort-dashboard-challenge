@@ -43,6 +43,9 @@ function PostItem(props) {
               {/* Only render Icon if posterContact exists */}
               {posterContact && <Icon person={posterContact} />}
               <section className="nameAndTitle">
+                <div className="editbutton">
+                  
+                </div>
                 <div className="name">
                   {/* Check if posterContact is defined before accessing properties */}
                   {posterContact ? (

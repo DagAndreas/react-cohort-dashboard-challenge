@@ -113,6 +113,11 @@ function CommentEditPage(props) {
       });
   };
 
+  const editPress = () => {
+    console.log()
+    navigate(`/post/${postid}/comment/${comment.id}`);
+  };
+
   // Render the form with input fields linked to state variables
   return (
     <>
@@ -150,9 +155,9 @@ function CommentEditPage(props) {
               />
             </div>
             <div className="button-group">
-              <button type="button" className="save-button" onClick={onSave}>
-                Save
-              </button>
+            <button className="edit-button" onClick={editPress}>
+              Edit
+            </button>
               <button type="button" className="delete-button" onClick={onDelete}>
                 Delete
               </button>

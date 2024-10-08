@@ -11,6 +11,7 @@ function CreateCommentButton(props) {
   const currentUser = contacts[0];
   // console.log("currentuser", currentUser);
 
+
   const [field, setField] = useState("");
   const updateOnTextbox = (event, setter) => {
     const updatedText = event.target.value;
@@ -23,6 +24,7 @@ function CreateCommentButton(props) {
 
     if (field === "") {
       console.log("cant submit empty comment");
+      return
     }
 
     const path = `https://boolean-uk-api-server.fly.dev/dagandreas/post/${post.id}/comment`;
@@ -44,6 +46,7 @@ function CreateCommentButton(props) {
       .then((data) => {
         console.log("success", data);
         setField("");
+        window.location.reload()
       })
       .catch((error) => {
         console.error("error when creating comment", error);
@@ -59,7 +62,6 @@ function CreateCommentButton(props) {
             onChange={(event) => updateOnTextbox(event, setField)}
             type="text"
             placeholder="Comment"
-            maxLength={100} /* Adjust max length as needed */
             className="new-post-input"
           />
           <button onClick={submitPost} className="new-post-button">
