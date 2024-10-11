@@ -3,10 +3,9 @@ import { useContext, useEffect, useState } from "react";
 import { ContactContext } from "../App";
 import Icon from "../headercomponents/Icon";
 import PostComment from "./PostComment";
-
-import "./PostItem.css";
-import CreateCommentButton from "./CreateCommentButton";
 import { useNavigate } from "react-router-dom";
+import CreateCommentButton from "./CreateCommentButton";
+import "./PostItem.css";
 
 function PostItem(props) {
   const { post } = props;
@@ -14,86 +13,127 @@ function PostItem(props) {
   const [comments, setComments] = useState([]);
   const [seeAllComments, setSeeAllComments] = useState(false);
 
-  // user of post
-  const posterid = post.contactId; // eg. 2
-  const posterContact = contacts.find((contact) => contact.id === posterid); // find the contact based on id
+  // User of post
+  const posterid = post.contactId;
+  const posterContact = contacts.find((contact) => contact.id === posterid);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  // fetch comments for correct post id
+  // Fetch comments for the correct post id
   useEffect(() => {
     const path = `https://boolean-uk-api-server.fly.dev/dagandreas/post/${post.id}/comment`;
     fetch(path)
       .then((res) => res.json())
-      .then((data) => setComments(data))
+      .then((data) => {
+        // Reverse the comments so the most recent are first
+        setComments(data.reverse());
+      })
       .catch((error) => console.log("error in postitem", error));
-
-    // console.log("fetched from path:", path);
   }, [post.id]);
 
-  function EditPost(event) {
-    console.log("going to edit post page");
-    navigate("/post/1")
+  function handlePostClick(event) {
+    // Prevent navigating when clicking on buttons or links inside the post
+    if (
+      event.target.tagName === "BUTTON" ||
+      event.target.tagName === "A" ||
+      event.target.closest(".non-clickable")
+    ) {
+      return;
+    }
+    navigate(`/post/${post.id}`);
   }
 
-//TODO: Let post-text redirect to postpage
+  function handleKeyPress(event) {
+    if (event.key === "Enter" || event.key === " ") {
+      navigate(`/post/${post.id}`);
+    }
+  }
+
+  // Fix the Edit button to navigate correctly
+  function handleEditClick(event) {
+    event.stopPropagation();
+    navigate(`/post/edit/${post.id}`); // Adjust the path if needed
+  }
+
+  // Determine whether to show the "Show all comments" button
+  const showShowAllButton = comments.length > 3;
+
+  // Get the comments to display
+  const commentsToDisplay = seeAllComments
+    ? comments
+    : comments.slice(0, 3);
+
   return (
     <>
-      <li>
-        <main className="postwrapper">
-          <section className="postsection">
-            <section className="userinfo">
-              {/* Only render Icon if posterContact exists */}
-              {posterContact && <Icon person={posterContact} />}
-              <section className="nameAndTitle">
-                <div className="editbutton">
-                  <button onClick={EditPost} className="new-post-button">
-                    Edit
-                  </button>
-                </div>
-                <div className="name">
-                  {/* Check if posterContact is defined before accessing properties */}
-                  {posterContact ? (
-                    <>
-                      {posterContact.firstName} {posterContact.lastName}
-                    </>
-                  ) : (
-                    "Unknown User"
-                  )}
-                </div>
-                {/* Also check for jobTitle */}
-                <div className="title">
-                  {posterContact?.jobTitle || "No Title Available"}
-                </div>
-              </section>
-            </section>
-            <section className="posttext">
-              <p>{post.content}</p>
+      <li
+        className="postwrapper clickable"
+        onClick={handlePostClick}
+        role="button"
+        tabIndex="0"
+        onKeyPress={handleKeyPress}
+      >
+        <section className="postsection">
+          <section className="userinfo">
+            {posterContact && <Icon person={posterContact} />}
+            <section className="nameAndTitle">
+              <div className="editbutton non-clickable">
+                <button
+                  onClick={handleEditClick}
+                  className="new-post-button"
+                >
+                  Edit
+                </button>
+              </div>
+              <div className="name">
+                {posterContact ? (
+                  <>
+                    {posterContact.firstName} {posterContact.lastName}
+                  </>
+                ) : (
+                  "Unknown User"
+                )}
+              </div>
+              <div className="title">
+                {posterContact?.jobTitle || "No Title Available"}
+              </div>
             </section>
           </section>
+          <section className="posttext">
+            <p>{post.content}</p>
+          </section>
+        </section>
 
-          <div className="divider" />
+        <div className="divider" />
 
-          <div>
-            <button className="previousCommentsButton">
-              See previous comments
+        <div className="comments-section non-clickable">
+          {commentsToDisplay.length > 0 ? (
+            commentsToDisplay.map((comment) => (
+              <PostComment
+                key={comment.id}
+                comment={comment}
+                postid={post.id}
+              />
+            ))
+          ) : (
+            <p>No comments available</p>
+          )}
+
+          {showShowAllButton && (
+            <button
+              className="showAllCommentsButton"
+              onClick={(e) => {
+                e.stopPropagation();
+                setSeeAllComments(!seeAllComments);
+              }}
+            >
+              {seeAllComments ? "Hide comments" : "Show all comments"}
             </button>
+          )}
+        </div>
 
-            {comments.length > 0 ? (
-              comments.map((comment) => (
-                <PostComment
-                  key={comment.id}
-                  comment={comment}
-                  postid={post.id}
-                />
-              ))
-            ) : (
-              <p>No comments available</p>
-            )}
-          </div>
-
+        <div className="create-comment-button non-clickable">
           <CreateCommentButton post={post} />
-        </main>
+        </div>
       </li>
     </>
   );

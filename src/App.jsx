@@ -9,6 +9,7 @@ import Home from "./maincomponents/Home";
 import ContactPage from "./ContactProfilePage/ContactPage";
 import CommentEditPage from "./CommentProfil/CommentEditPage";
 import JustPostPage from "./PostOwnPage/JustPostPage";
+import PostEditPage from "./PostProfile/PostEditPage";
 
 //define a context
 const PostContext = createContext();
@@ -37,6 +38,7 @@ function App() {
               <Route Route path="/" element={<Home />} />
               <Route Route path="/contact/:id" element={<ContactPage/>} />
               <Route Route path="/post/:postid/comment/:commentid" element={<CommentEditPage/>} />
+              <Route Route path="/post/edit/:postid" element={<PostEditPage/>} />
               <Route Route path="/post/:id" element={<JustPostPage/>} />
             </Routes>
           </header>
