@@ -25,6 +25,34 @@ function App() {
   }, []);
 
 
+// Function to fetch posts
+async function getPosts() {
+  const response = await fetch("https://boolean-uk-api-server.fly.dev/dagandreas/post");
+  return response.json();
+}
+
+// Function to fetch contacts
+async function getContacts() {
+  const response = await fetch("https://boolean-uk-api-server.fly.dev/dagandreas/contact");
+  return response.json();
+}
+
+// Fetch both posts and contacts concurrently
+useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const [postsData, contactsData] = await Promise.all([getPosts(), getContacts()]);
+      setPosts(postsData);
+      console.log(postsData)
+      console.log(contactsData)
+      setContacts(contactsData);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  fetchData();
+}, []);
   
 
   return (
@@ -54,31 +82,3 @@ export { App, PostContext, ContactContext };
 
 
 
-// // Function to fetch posts
-// async function getPosts() {
-//   const response = await fetch("https://boolean-uk-api-server.fly.dev/dagandreas/post");
-//   return response.json();
-// }
-
-// // Function to fetch contacts
-// async function getContacts() {
-//   const response = await fetch("https://boolean-uk-api-server.fly.dev/dagandreas/contact");
-//   return response.json();
-// }
-
-// // Fetch both posts and contacts concurrently
-// useEffect(() => {
-//   const fetchData = async () => {
-//     try {
-//       const [postsData, contactsData] = await Promise.all([getPosts(), getContacts()]);
-//       setPosts(postsData);
-//       console.log(postsData)
-//       console.log(contactsData)
-//       setContacts(contactsData);
-//     } catch (error) {
-//       console.error("Error fetching data:", error);
-//     }
-//   };
-
-//   fetchData();
-// }, []);
