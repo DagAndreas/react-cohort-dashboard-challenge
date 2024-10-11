@@ -4,7 +4,7 @@ import Sidebar from "../maincomponents/Sidebar";
 import "./CommentEditPage.css";
 import { useEffect, useState } from "react";
 
-function CommentEditPage(props) {
+function CommentEditPage() {
   const { postid, commentid } = useParams();
   const navigate = useNavigate(); // For navigation after actions
 

@@ -1,0 +1,84 @@
+.postedit-container {
+    display: flex;
+    width: 100%;
+  }
+
+  h2{
+    align-self: center;
+  }
+  .postForms {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .post-form {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .input-group label {
+    width: 150px; /* Adjust the width as needed */
+    margin-right: 10px;
+    text-align: right;
+    font-weight: bold;
+  }
+  
+  .input-group input,
+  .input-group textarea {
+    flex: 1;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .input-group textarea {
+    height: 100px; /* Adjust the height as needed */
+    resize: vertical;
+  }
+  
+  .button-group {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+  
+  .button-group button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 10px;
+    border-radius: 4px;
+    border: none;
+    color: #fff;
+  }
+  
+  .save-button {
+    background-color: #000046; /* Dark blue color */
+  }
+  
+  .delete-button {
+    background-color: #d9534f; /* Bootstrap's 'danger' red */
+  }
+  
+  .button-group button:hover {
+    opacity: 0.9;
+  }
+  
+  .button-group button:active {
+    transform: scale(0.98);
+  }
+  
+  .commentForms h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+  }
+  
+  

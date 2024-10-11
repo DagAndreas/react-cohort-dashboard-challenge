@@ -6,18 +6,19 @@ import PostComment from "./PostComment";
 
 import "./PostItem.css";
 import CreateCommentButton from "./CreateCommentButton";
+import { useNavigate } from "react-router-dom";
 
 function PostItem(props) {
   const { post } = props;
-
   const { contacts } = useContext(ContactContext);
-
   const [comments, setComments] = useState([]);
   const [seeAllComments, setSeeAllComments] = useState(false);
 
   // user of post
   const posterid = post.contactId; // eg. 2
   const posterContact = contacts.find((contact) => contact.id === posterid); // find the contact based on id
+
+  const navigate = useNavigate()
 
   // fetch comments for correct post id
   useEffect(() => {
@@ -27,13 +28,15 @@ function PostItem(props) {
       .then((data) => setComments(data))
       .catch((error) => console.log("error in postitem", error));
 
-    console.log("fetched from path:", path);
+    // console.log("fetched from path:", path);
   }, [post.id]);
 
-  useEffect(() => {
-    console.log("Updated comments:", comments);
-  }, [comments]);
+  function EditPost(event) {
+    console.log("going to edit post page");
+    navigate("/post/1")
+  }
 
+//TODO: Let post-text redirect to postpage
   return (
     <>
       <li>
@@ -44,7 +47,9 @@ function PostItem(props) {
               {posterContact && <Icon person={posterContact} />}
               <section className="nameAndTitle">
                 <div className="editbutton">
-                  
+                  <button onClick={EditPost} className="new-post-button">
+                    Edit
+                  </button>
                 </div>
                 <div className="name">
                   {/* Check if posterContact is defined before accessing properties */}
@@ -76,7 +81,11 @@ function PostItem(props) {
 
             {comments.length > 0 ? (
               comments.map((comment) => (
-                <PostComment key={comment.id} comment={comment} postid = {post.id}/>
+                <PostComment
+                  key={comment.id}
+                  comment={comment}
+                  postid={post.id}
+                />
               ))
             ) : (
               <p>No comments available</p>
